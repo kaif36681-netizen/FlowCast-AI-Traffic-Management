@@ -1,0 +1,122 @@
+[
+  {
+    "feature": "traffic_volume_lag1",
+    "importance": 0.6663759542522262
+  },
+  {
+    "feature": "traffic_volume_lag336",
+    "importance": 0.033282949249450695
+  },
+  {
+    "feature": "event_x_peak",
+    "importance": 0.029036608822328613
+  },
+  {
+    "feature": "traffic_volume_lag48",
+    "importance": 0.026484390470243348
+  },
+  {
+    "feature": "roadwork_x_peak",
+    "importance": 0.025042431395010174
+  },
+  {
+    "feature": "is_peak",
+    "importance": 0.013260560913536081
+  },
+  {
+    "feature": "volume_vs_roll8",
+    "importance": 0.011005800427871332
+  },
+  {
+    "feature": "event_flag",
+    "importance": 0.010803399848404328
+  },
+  {
+    "feature": "hour_cos",
+    "importance": 0.010083976550576305
+  },
+  {
+    "feature": "dow_sin",
+    "importance": 0.009304655250353629
+  },
+  {
+    "feature": "is_weekend",
+    "importance": 0.009149261308138671
+  },
+  {
+    "feature": "hour",
+    "importance": 0.009032915852970329
+  },
+  {
+    "feature": "minute_of_day",
+    "importance": 0.008916919643715038
+  },
+  {
+    "feature": "roadwork_flag",
+    "importance": 0.008871121862983373
+  },
+  {
+    "feature": "traffic_volume_rollmean48",
+    "importance": 0.008223874191208071
+  },
+  {
+    "feature": "avg_speed_rollmean8",
+    "importance": 0.008166814859594711
+  },
+  {
+    "feature": "holiday_x_peak",
+    "importance": 0.007313311399133521
+  },
+  {
+    "feature": "road_capacity",
+    "importance": 0.007253134000008426
+  },
+  {
+    "feature": "hour_sin",
+    "importance": 0.007042882372415995
+  },
+  {
+    "feature": "avg_speed_lag4",
+    "importance": 0.0069691593541378405
+  },
+  {
+    "feature": "day_of_week",
+    "importance": 0.005696420633986778
+  },
+  {
+    "feature": "traffic_volume_lag2",
+    "importance": 0.005045339639069808
+  },
+  {
+    "feature": "capacity_30min",
+    "importance": 0.004910239678370526
+  },
+  {
+    "feature": "rain_flag",
+    "importance": 0.0046323670570928
+  },
+  {
+    "feature": "public_holiday",
+    "importance": 0.004043420169736456
+  },
+  {
+    "feature": "vc_lag1",
+    "importance": 0.0029043671971674193
+  },
+  {
+    "feature": "vc_ratio_lag4",
+    "importance": 0.0028055285082979812
+  },
+  {
+    "feature": "traffic_volume_rollmean4",
+    "importance": 0.0027174745332236155
+  },
+  {
+    "feature": "rainfall_lag1",
+    "importance": 0.0020637374067225744
+  },
+  {
+    "feature": "temp_band_mild",
+    "importance": 0.0020316573069637995
+  }
+]

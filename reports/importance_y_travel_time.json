@@ -1,0 +1,122 @@
+[
+  {
+    "feature": "event_x_peak",
+    "importance": 0.1780231348724072
+  },
+  {
+    "feature": "is_peak",
+    "importance": 0.11849054293280822
+  },
+  {
+    "feature": "headroom_lag1",
+    "importance": 0.10344695600331942
+  },
+  {
+    "feature": "speed_vs_roll8",
+    "importance": 0.05439175450833779
+  },
+  {
+    "feature": "road_code",
+    "importance": 0.05322028106060579
+  },
+  {
+    "feature": "hour_sin",
+    "importance": 0.03881530203907958
+  },
+  {
+    "feature": "event_flag",
+    "importance": 0.03842094279663
+  },
+  {
+    "feature": "latitude",
+    "importance": 0.03762632717701707
+  },
+  {
+    "feature": "road_capacity",
+    "importance": 0.03234958742643032
+  },
+  {
+    "feature": "capacity_30min",
+    "importance": 0.030324083702389485
+  },
+  {
+    "feature": "longitude",
+    "importance": 0.026843583990991373
+  },
+  {
+    "feature": "avg_speed_lag336",
+    "importance": 0.0167545718350757
+  },
+  {
+    "feature": "low_visibility_flag",
+    "importance": 0.016466947750712682
+  },
+  {
+    "feature": "minute_of_day",
+    "importance": 0.01578745850582734
+  },
+  {
+    "feature": "day_of_week",
+    "importance": 0.013209185015374289
+  },
+  {
+    "feature": "vc_lag1",
+    "importance": 0.010811599285515726
+  },
+  {
+    "feature": "congestion_lag48_ord",
+    "importance": 0.010574383036967899
+  },
+  {
+    "feature": "hour",
+    "importance": 0.00875819406765157
+  },
+  {
+    "feature": "is_weekend",
+    "importance": 0.00785497505681313
+  },
+  {
+    "feature": "dow_sin",
+    "importance": 0.007693939600097706
+  },
+  {
+    "feature": "weather_condition_lag1_Clear",
+    "importance": 0.00701680753271718
+  },
+  {
+    "feature": "hour_cos",
+    "importance": 0.006027681462455835
+  },
+  {
+    "feature": "avg_speed_lag1",
+    "importance": 0.005594895849461494
+  },
+  {
+    "feature": "vc_ratio_lag48",
+    "importance": 0.004563716372783207
+  },
+  {
+    "feature": "day_of_month",
+    "importance": 0.004172130609041381
+  },
+  {
+    "feature": "avg_speed_rollmean8",
+    "importance": 0.004067572883197507
+  },
+  {
+    "feature": "vc_ratio_lag336",
+    "importance": 0.003941578439369777
+  },
+  {
+    "feature": "roadwork_flag",
+    "importance": 0.003836232116112941
+  },
+  {
+    "feature": "temp_band_warm",
+    "importance": 0.003829685151053877
+  },
+  {
+    "feature": "vc_ratio_lag3",
+    "importance": 0.003436272598028883
+  }
+]

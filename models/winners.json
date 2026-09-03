@@ -1,0 +1,7 @@
+{
+  "y_accident": "Logistic Regression",
+  "y_volume": "XGBoost",
+  "y_speed": "XGBoost",
+  "y_travel_time": "XGBoost",
+  "y_congestion": "XGBoost"
+}

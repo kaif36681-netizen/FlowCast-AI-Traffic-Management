@@ -1,0 +1,486 @@
+[
+  {
+    "model": "Logistic Regression",
+    "target": "y_accident",
+    "flowcast_version": "1.0",
+    "random_seed": 42,
+    "training_window": {
+      "start": "2025-01-08 00:00:00+05:30",
+      "end": "2025-04-18 18:30:00+05:30",
+      "rows": 120950
+    },
+    "test_window": {
+      "start": "2025-05-10 09:30:00+05:30",
+      "end": "2025-05-31 23:30:00+05:30",
+      "rows": 25925
+    },
+    "n_features": 93,
+    "test_metrics": {
+      "roc_auc": 0.643260759493671,
+      "pr_auc": 0.02137356325468177,
+      "base_rate": 0.009643201542912247,
+      "n": 25925,
+      "threshold": 0.01235790118014249,
+      "precision": 0.025064504238849983,
+      "recall": 0.272,
+      "f1": 0.045899426257171784,
+      "flagged_rate": 0.1046480231436837,
+      "top_decile_rate": 0.02546296296296296,
+      "top_decile_lift": 2.640509259259259,
+      "val_roc_auc": 0.5517991109159526,
+      "train_seconds": 2.5,
+      "brier_raw": 0.2508706372120301,
+      "brier_calibrated": 0.009524848238199017,
+      "mean_pred_raw": 0.48551288894363615,
+      "mean_pred_calibrated": 0.00795235460709834,
+      "observed_rate": 0.009643201542912247
+    },
+    "feature_importance_top": [],
+    "selection_rule": "highest test ROC-AUC",
+    "operating_threshold": 0.01235790118014249
+  },
+  {
+    "model": "XGBoost",
+    "target": "y_volume",
+    "flowcast_version": "1.0",
+    "random_seed": 42,
+    "training_window": {
+      "start": "2025-01-08 00:00:00+05:30",
+      "end": "2025-04-18 18:30:00+05:30",
+      "rows": 120950
+    },
+    "test_window": {
+      "start": "2025-05-10 09:30:00+05:30",
+      "end": "2025-05-31 23:30:00+05:30",
+      "rows": 25925
+    },
+    "n_features": 93,
+    "test_metrics": {
+      "rmse": 55.86237500738253,
+      "mae": 37.71859855512069,
+      "mape": 8.918539230422084,
+      "r2": 0.962160609009282,
+      "n": 25925,
+      "val_rmse": 57.75972777667458,
+      "train_seconds": 67.7,
+      "cv_rmse": 56.38212585449219
+    },
+    "feature_importance_top": [
+      {
+        "feature": "traffic_volume_lag1",
+        "importance": 0.6663759542522262
+      },
+      {
+        "feature": "traffic_volume_lag336",
+        "importance": 0.033282949249450695
+      },
+      {
+        "feature": "event_x_peak",
+        "importance": 0.029036608822328613
+      },
+      {
+        "feature": "traffic_volume_lag48",
+        "importance": 0.026484390470243348
+      },
+      {
+        "feature": "roadwork_x_peak",
+        "importance": 0.025042431395010174
+      },
+      {
+        "feature": "is_peak",
+        "importance": 0.013260560913536081
+      },
+      {
+        "feature": "volume_vs_roll8",
+        "importance": 0.011005800427871332
+      },
+      {
+        "feature": "event_flag",
+        "importance": 0.010803399848404328
+      },
+      {
+        "feature": "hour_cos",
+        "importance": 0.010083976550576305
+      },
+      {
+        "feature": "dow_sin",
+        "importance": 0.009304655250353629
+      },
+      {
+        "feature": "is_weekend",
+        "importance": 0.009149261308138671
+      },
+      {
+        "feature": "hour",
+        "importance": 0.009032915852970329
+      },
+      {
+        "feature": "minute_of_day",
+        "importance": 0.008916919643715038
+      },
+      {
+        "feature": "roadwork_flag",
+        "importance": 0.008871121862983373
+      },
+      {
+        "feature": "traffic_volume_rollmean48",
+        "importance": 0.008223874191208071
+      },
+      {
+        "feature": "avg_speed_rollmean8",
+        "importance": 0.008166814859594711
+      },
+      {
+        "feature": "holiday_x_peak",
+        "importance": 0.007313311399133521
+      },
+      {
+        "feature": "road_capacity",
+        "importance": 0.007253134000008426
+      },
+      {
+        "feature": "hour_sin",
+        "importance": 0.007042882372415995
+      },
+      {
+        "feature": "avg_speed_lag4",
+        "importance": 0.0069691593541378405
+      }
+    ],
+    "selection_rule": "lowest test RMSE among trained models"
+  },
+  {
+    "model": "XGBoost",
+    "target": "y_speed",
+    "flowcast_version": "1.0",
+    "random_seed": 42,
+    "training_window": {
+      "start": "2025-01-08 00:00:00+05:30",
+      "end": "2025-04-18 18:30:00+05:30",
+      "rows": 120950
+    },
+    "test_window": {
+      "start": "2025-05-10 09:30:00+05:30",
+      "end": "2025-05-31 23:30:00+05:30",
+      "rows": 25925
+    },
+    "n_features": 93,
+    "test_metrics": {
+      "rmse": 3.442564094895587,
+      "mae": 2.632342070815878,
+      "mape": 8.27567525447068,
+      "r2": 0.9129468514668871,
+      "n": 25925,
+      "val_rmse": 3.5648341400779286,
+      "train_seconds": 20.8
+    },
+    "feature_importance_top": [
+      {
+        "feature": "is_peak",
+        "importance": 0.5631519431728302
+      },
+      {
+        "feature": "is_weekend",
+        "importance": 0.10489363736816962
+      },
+      {
+        "feature": "avg_speed_lag336",
+        "importance": 0.08247524317826983
+      },
+      {
+        "feature": "avg_speed_lag1",
+        "importance": 0.04881727215170683
+      },
+      {
+        "feature": "vc_lag1",
+        "importance": 0.030222567993803594
+      },
+      {
+        "feature": "event_x_peak",
+        "importance": 0.02647441567152144
+      },
+      {
+        "feature": "holiday_x_peak",
+        "importance": 0.01689635924948704
+      },
+      {
+        "feature": "vc_ratio_lag1",
+        "importance": 0.014451632888476494
+      },
+      {
+        "feature": "roadwork_flag",
+        "importance": 0.00944799070810256
+      },
+      {
+        "feature": "day_of_week",
+        "importance": 0.008792023911701105
+      },
+      {
+        "feature": "vc_ratio_lag336",
+        "importance": 0.008674744325113903
+      },
+      {
+        "feature": "public_holiday",
+        "importance": 0.008556663801130213
+      },
+      {
+        "feature": "event_flag",
+        "importance": 0.008544782919308117
+      },
+      {
+        "feature": "speed_vs_roll8",
+        "importance": 0.006887483724155568
+      },
+      {
+        "feature": "hour_cos",
+        "importance": 0.006439984633915349
+      },
+      {
+        "feature": "dow_sin",
+        "importance": 0.005284406593761453
+      },
+      {
+        "feature": "hour_sin",
+        "importance": 0.0051806977737706835
+      },
+      {
+        "feature": "minute_of_day",
+        "importance": 0.004195133131521042
+      },
+      {
+        "feature": "avg_speed_rollmean4",
+        "importance": 0.0029486580100912515
+      },
+      {
+        "feature": "hour",
+        "importance": 0.0027121111617558545
+      }
+    ],
+    "selection_rule": "lowest test RMSE among trained models"
+  },
+  {
+    "model": "XGBoost",
+    "target": "y_travel_time",
+    "flowcast_version": "1.0",
+    "random_seed": 42,
+    "training_window": {
+      "start": "2025-01-08 00:00:00+05:30",
+      "end": "2025-04-18 18:30:00+05:30",
+      "rows": 120950
+    },
+    "test_window": {
+      "start": "2025-05-10 09:30:00+05:30",
+      "end": "2025-05-31 23:30:00+05:30",
+      "rows": 25925
+    },
+    "n_features": 93,
+    "test_metrics": {
+      "rmse": 1.0534503051308768,
+      "mae": 0.42917645555912814,
+      "mape": 9.130157677998238,
+      "r2": 0.8350378702062748,
+      "n": 25925,
+      "val_rmse": 1.0672986123591124,
+      "train_seconds": 18.1
+    },
+    "feature_importance_top": [
+      {
+        "feature": "event_x_peak",
+        "importance": 0.1780231348724072
+      },
+      {
+        "feature": "is_peak",
+        "importance": 0.11849054293280822
+      },
+      {
+        "feature": "headroom_lag1",
+        "importance": 0.10344695600331942
+      },
+      {
+        "feature": "speed_vs_roll8",
+        "importance": 0.05439175450833779
+      },
+      {
+        "feature": "road_code",
+        "importance": 0.05322028106060579
+      },
+      {
+        "feature": "hour_sin",
+        "importance": 0.03881530203907958
+      },
+      {
+        "feature": "event_flag",
+        "importance": 0.03842094279663
+      },
+      {
+        "feature": "latitude",
+        "importance": 0.03762632717701707
+      },
+      {
+        "feature": "road_capacity",
+        "importance": 0.03234958742643032
+      },
+      {
+        "feature": "capacity_30min",
+        "importance": 0.030324083702389485
+      },
+      {
+        "feature": "longitude",
+        "importance": 0.026843583990991373
+      },
+      {
+        "feature": "avg_speed_lag336",
+        "importance": 0.0167545718350757
+      },
+      {
+        "feature": "low_visibility_flag",
+        "importance": 0.016466947750712682
+      },
+      {
+        "feature": "minute_of_day",
+        "importance": 0.01578745850582734
+      },
+      {
+        "feature": "day_of_week",
+        "importance": 0.013209185015374289
+      },
+      {
+        "feature": "vc_lag1",
+        "importance": 0.010811599285515726
+      },
+      {
+        "feature": "congestion_lag48_ord",
+        "importance": 0.010574383036967899
+      },
+      {
+        "feature": "hour",
+        "importance": 0.00875819406765157
+      },
+      {
+        "feature": "is_weekend",
+        "importance": 0.00785497505681313
+      },
+      {
+        "feature": "dow_sin",
+        "importance": 0.007693939600097706
+      }
+    ],
+    "selection_rule": "lowest test RMSE among trained models"
+  },
+  {
+    "model": "XGBoost",
+    "target": "y_congestion",
+    "flowcast_version": "1.0",
+    "random_seed": 42,
+    "training_window": {
+      "start": "2025-01-08 00:00:00+05:30",
+      "end": "2025-04-18 18:30:00+05:30",
+      "rows": 120950
+    },
+    "test_window": {
+      "start": "2025-05-10 09:30:00+05:30",
+      "end": "2025-05-31 23:30:00+05:30",
+      "rows": 25925
+    },
+    "n_features": 93,
+    "test_metrics": {
+      "accuracy": 0.8772227579556413,
+      "macro_f1": 0.7675061864735861,
+      "weighted_f1": 0.877986334580194,
+      "macro_precision": 0.7685020667476584,
+      "macro_recall": 0.7673564430557519,
+      "n": 25925,
+      "val_macro_f1": 0.7536830142823798,
+      "train_seconds": 74.6
+    },
+    "feature_importance_top": [
+      {
+        "feature": "vc_ratio_lag1",
+        "importance": 0.2191273763748937
+      },
+      {
+        "feature": "vc_lag1",
+        "importance": 0.20683412759155523
+      },
+      {
+        "feature": "congestion_lag1_ord",
+        "importance": 0.05959565653761109
+      },
+      {
+        "feature": "speed_vs_roll8",
+        "importance": 0.030454004596023834
+      },
+      {
+        "feature": "roadwork_x_peak",
+        "importance": 0.02730293069420165
+      },
+      {
+        "feature": "avg_speed_lag336",
+        "importance": 0.026794262817262965
+      },
+      {
+        "feature": "is_night",
+        "importance": 0.02472063595071201
+      },
+      {
+        "feature": "event_x_peak",
+        "importance": 0.021850923898510184
+      },
+      {
+        "feature": "is_peak",
+        "importance": 0.021453033111257184
+      },
+      {
+        "feature": "holiday_x_peak",
+        "importance": 0.02049022629152721
+      },
+      {
+        "feature": "hour_cos",
+        "importance": 0.016880882100169456
+      },
+      {
+        "feature": "public_holiday",
+        "importance": 0.016771969518189375
+      },
+      {
+        "feature": "hour_sin",
+        "importance": 0.015560254645051418
+      },
+      {
+        "feature": "volume_vs_roll8",
+        "importance": 0.015102488201004724
+      },
+      {
+        "feature": "event_flag",
+        "importance": 0.01502168758960089
+      },
+      {
+        "feature": "roadwork_flag",
+        "importance": 0.014838344642324029
+      },
+      {
+        "feature": "hour",
+        "importance": 0.012964827322562414
+      },
+      {
+        "feature": "minute_of_day",
+        "importance": 0.012231387546910263
+      },
+      {
+        "feature": "day_of_week",
+        "importance": 0.012084794586677921
+      },
+      {
+        "feature": "is_am_peak",
+        "importance": 0.01068458003341299
+      }
+    ],
+    "selection_rule": "highest test macro-F1",
+    "class_labels": [
+      "Free-flow",
+      "Moderate",
+      "Heavy",
+      "Severe"
+    ]
+  }
+]

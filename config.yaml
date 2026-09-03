@@ -1,0 +1,121 @@
+# FlowCast v1.0 — pipeline configuration
+# Every tunable lives here so no magic numbers hide in the modules.
+
+project:
+  name: FlowCast
+  version: "1.0"
+  corridor: Northline
+  random_seed: 42
+  timezone: Asia/Kolkata
+
+paths:
+  raw: data/raw
+  interim: data/interim
+  processed: data/processed
+  models: models
+  reports: reports
+  figures: reports/figures
+  logs: logs
+
+data:
+  traffic_file: traffic_sensor_log.csv
+  weather_file: weather_observations.csv
+  calendar_file: calendar_events.csv
+  n_segments: 25
+  window_minutes: 30
+  windows_per_day: 48
+
+validation:
+  # Hard physical bounds. Anything outside is a sensor fault, not an extreme value.
+  ranges:
+    traffic_volume: [0, 5000]
+    avg_speed: [0, 200]
+    occupancy: [0, 100]
+    travel_time: [0, 240]
+    accident_count: [0, 20]
+    signal_timing: [0, 300]
+    road_capacity: [100, 10000]
+    temperature: [-20, 60]
+    rainfall: [0, 500]
+    visibility: [0, 50000]
+  z_threshold: 5.0          # per-segment z-score gate for statistical outliers
+  iqr_multiplier: 3.0
+
+cleaning:
+  # Weather label vocabulary. 'Overcast' is not in the data dictionary but is
+  # present in the file (358 rows) — folded into Cloudy as the nearest concept.
+  weather_vocabulary:
+    clear: Clear
+    cloudy: Cloudy
+    overcast: Cloudy
+    rain: Rain
+    rainy: Rain
+    fog: Fog
+    foggy: Fog
+  max_interpolate_gap: 2    # windows; longer gaps use the seasonal-median fill
+  congestion_bands:         # V/C ratio -> class, per the data dictionary
+    - [0.00, 0.50, Free-flow]
+    - [0.50, 0.80, Moderate]
+    - [0.80, 1.00, Heavy]
+    - [1.00, 99.0, Severe]
+
+features:
+  lags: [1, 2, 3, 4, 48, 336]          # 30min, 1h, 1.5h, 2h, 1 day, 1 week
+  rolling_windows: [4, 8, 48]
+  horizon: 1                            # predict t+1 (30 minutes ahead)
+
+split:
+  # Time-based, never random. Fractions of the ordered timeline.
+  train_frac: 0.70
+  val_frac: 0.15
+  test_frac: 0.15
+
+models:
+  classical:
+    random_forest:
+      n_estimators: 150
+      max_depth: 18
+      min_samples_leaf: 4
+      # sqrt feature sampling: with 93 features the default (use all) makes each
+      # split ~9x more expensive for no measurable accuracy gain on this data.
+      max_features: sqrt
+    decision_tree:
+      max_depth: 12
+      min_samples_leaf: 20
+    xgboost:
+      n_estimators: 600
+      max_depth: 7
+      learning_rate: 0.06
+      subsample: 0.85
+      colsample_bytree: 0.85
+      min_child_weight: 5
+    svm:
+      max_train_rows: 12000            # SVM is O(n^2); subsample the train window
+      C: 2.0
+      gamma: scale
+  scratch_linreg:
+    learning_rate: 0.08
+    epochs: 15
+    bilstm_epochs: 8      # comparison variant only; not the deployed forecaster
+    mc_samples: 20        # Monte-Carlo dropout passes for the confidence band0
+    batch_size: 4096
+  deep:
+    sequence_length: 12                # 6 hours of history
+    hidden_size: 64
+    num_layers: 2
+    dropout: 0.25
+    learning_rate: 0.002
+    batch_size: 512
+    epochs: 15
+    bilstm_epochs: 8      # comparison variant only; not the deployed forecaster
+    mc_samples: 20        # Monte-Carlo dropout passes for the confidence band
+    patience: 4
+    max_train_sequences: 400000
+
+evaluation:
+  accident_threshold_metric: f1        # threshold chosen by max F1 on validation
+  targets:
+    volume: rmse
+    speed: rmse
+    congestion: macro_f1
+    accident: roc_auc

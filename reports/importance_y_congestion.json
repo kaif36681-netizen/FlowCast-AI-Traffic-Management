@@ -1,0 +1,122 @@
+[
+  {
+    "feature": "vc_ratio_lag1",
+    "importance": 0.2191273763748937
+  },
+  {
+    "feature": "vc_lag1",
+    "importance": 0.20683412759155523
+  },
+  {
+    "feature": "congestion_lag1_ord",
+    "importance": 0.05959565653761109
+  },
+  {
+    "feature": "speed_vs_roll8",
+    "importance": 0.030454004596023834
+  },
+  {
+    "feature": "roadwork_x_peak",
+    "importance": 0.02730293069420165
+  },
+  {
+    "feature": "avg_speed_lag336",
+    "importance": 0.026794262817262965
+  },
+  {
+    "feature": "is_night",
+    "importance": 0.02472063595071201
+  },
+  {
+    "feature": "event_x_peak",
+    "importance": 0.021850923898510184
+  },
+  {
+    "feature": "is_peak",
+    "importance": 0.021453033111257184
+  },
+  {
+    "feature": "holiday_x_peak",
+    "importance": 0.02049022629152721
+  },
+  {
+    "feature": "hour_cos",
+    "importance": 0.016880882100169456
+  },
+  {
+    "feature": "public_holiday",
+    "importance": 0.016771969518189375
+  },
+  {
+    "feature": "hour_sin",
+    "importance": 0.015560254645051418
+  },
+  {
+    "feature": "volume_vs_roll8",
+    "importance": 0.015102488201004724
+  },
+  {
+    "feature": "event_flag",
+    "importance": 0.01502168758960089
+  },
+  {
+    "feature": "roadwork_flag",
+    "importance": 0.014838344642324029
+  },
+  {
+    "feature": "hour",
+    "importance": 0.012964827322562414
+  },
+  {
+    "feature": "minute_of_day",
+    "importance": 0.012231387546910263
+  },
+  {
+    "feature": "day_of_week",
+    "importance": 0.012084794586677921
+  },
+  {
+    "feature": "is_am_peak",
+    "importance": 0.01068458003341299
+  },
+  {
+    "feature": "is_weekend",
+    "importance": 0.009395960271015327
+  },
+  {
+    "feature": "vc_ratio_lag336",
+    "importance": 0.008953464722497497
+  },
+  {
+    "feature": "rain_flag",
+    "importance": 0.008128580250243036
+  },
+  {
+    "feature": "is_pm_peak",
+    "importance": 0.0076197153985891955
+  },
+  {
+    "feature": "dow_sin",
+    "importance": 0.006409191686967458
+  },
+  {
+    "feature": "vc_ratio_lag48",
+    "importance": 0.005535085887665612
+  },
+  {
+    "feature": "congestion_lag48_ord",
+    "importance": 0.005467949174764658
+  },
+  {
+    "feature": "avg_speed_rollstd48",
+    "importance": 0.005413400217182854
+  },
+  {
+    "feature": "vc_ratio_lag2",
+    "importance": 0.004616568576523971
+  },
+  {
+    "feature": "avg_speed_rollmean8",
+    "importance": 0.003977398198708442
+  }
+]

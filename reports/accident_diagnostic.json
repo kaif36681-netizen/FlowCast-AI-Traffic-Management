@@ -1,0 +1,21 @@
+{
+  "honest_lagged": {
+    "roc_auc": 0.6321629600778969,
+    "pr_auc": 0.019311270253499335
+  },
+  "cheating_contemporaneous": {
+    "roc_auc": 0.6383171178188899,
+    "pr_auc": 0.021602133829101682
+  },
+  "cheat_advantage_roc_auc": 0.0062,
+  "prd_target": 0.75,
+  "test_positives": 250,
+  "test_base_rate": 0.009643201542912247,
+  "incident_rate_by_congestion_pct": {
+    "Free-flow": 0.733,
+    "Moderate": 0.758,
+    "Heavy": 1.587,
+    "Severe": 2.347
+  },
+  "verdict": "Signal-limited, not model-limited. A classifier permitted to see the target window's own congestion, occupancy and speed \u2014 information no deployed forecaster could have \u2014 gains only +0.0062 ROC-AUC over the honest lagged model. The ceiling on this dataset is therefore around 0.64, well short of the 0.75 target. Further tuning would be fitting noise. The recommended response is to change the metric the feature is judged on (top-decile lift, which is what an operator acts on) or to acquire the data that actually predicts incidents: road geometry, lane counts, historical collision locations, and sub-window speed variance."
+}

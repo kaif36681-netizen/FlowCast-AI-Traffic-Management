@@ -1,0 +1,27 @@
+{
+  "coverage": {
+    "nominal_coverage": 0.8,
+    "empirical_coverage": 0.8068659594985536,
+    "mean_interval_width": 126.031005859375,
+    "median_interval_width": 109.7315673828125,
+    "width_as_pct_of_mean_volume": 28.62778091430664
+  },
+  "width_by_condition": {
+    "Off-peak, dry": {
+      "mean": 90.44000244140625,
+      "size": 17516
+    },
+    "Peak": {
+      "mean": 210.9499969482422,
+      "size": 7225
+    },
+    "Peak + rain": {
+      "mean": 230.2899932861328,
+      "size": 350
+    },
+    "Rain": {
+      "mean": 94.12000274658203,
+      "size": 834
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "traffic_rows_raw": 178468,
+  "traffic_rows_valid": 177756,
+  "traffic_quarantined": 712,
+  "weather_rows_raw": 10872,
+  "weather_rows_valid": 10872,
+  "weather_quarantined": 0,
+  "calendar_rows": 151,
+  "quarantine_reasons": {
+    "traffic_volume_out_of_range;": 241,
+    "avg_speed_out_of_range;": 237,
+    "occupancy_out_of_range;": 234
+  },
+  "segments": 25,
+  "date_min": "2025-01-01 00:00:00+05:30",
+  "date_max": "2025-05-31 23:30:00+05:30"
+}

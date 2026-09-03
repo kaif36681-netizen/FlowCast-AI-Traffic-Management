@@ -1,0 +1,40 @@
+{
+  "duplicates_exact": 1759,
+  "duplicates_removed": 1759,
+  "grid_expected_rows": 181200,
+  "grid_missing_windows": 5203,
+  "statistical_outliers_nulled": {
+    "traffic_volume": 0,
+    "avg_speed": 0,
+    "occupancy": 0
+  },
+  "nulls_before_impute": {
+    "traffic_volume": 9534,
+    "avg_speed": 9534,
+    "occupancy": 9534
+  },
+  "nulls_interpolated": {
+    "traffic_volume": 9510,
+    "avg_speed": 9510,
+    "occupancy": 9510
+  },
+  "nulls_seasonal_median": {
+    "traffic_volume": 24,
+    "avg_speed": 24,
+    "occupancy": 24
+  },
+  "weather_nulls_filled": {
+    "temperature": 167,
+    "visibility": 111
+  },
+  "weather_labels_before": 13,
+  "weather_labels_after": 4,
+  "weather_match_rate": 1.0,
+  "merged_rows": 181200,
+  "congestion_blank_filled": 31720,
+  "congestion_rule_agreement": 0.9963874765854964,
+  "vehicle_mix_parse_failures": 0,
+  "leak_columns_dropped": [
+    "vehicle_count"
+  ]
+}

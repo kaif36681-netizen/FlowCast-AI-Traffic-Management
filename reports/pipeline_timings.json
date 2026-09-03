@@ -1,0 +1,13 @@
+{
+  "stages": [
+    {
+      "stage": "eda",
+      "seconds": 4.5
+    },
+    {
+      "stage": "intervals",
+      "seconds": 38.0
+    }
+  ],
+  "total_seconds": 42.5
+}

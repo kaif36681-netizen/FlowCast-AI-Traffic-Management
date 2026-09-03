@@ -1,0 +1,137 @@
+
+  F L O W C A S T
+  Predicting traffic 30 minutes ahead on a 25-segment city corridor
+
+==========================================================================
+  1. THE PROBLEM
+==========================================================================
+
+  A city traffic control room can see the road as it is right now, but by
+  the time a jam appears it is too late to prevent it.
+
+  This system answers one question:
+
+      Given everything we know up to now,
+      what will each stretch of road look like in 30 minutes?
+
+  Four answers per stretch: how many vehicles, how fast, how long to drive
+  it, and how likely an accident is.
+
+
+==========================================================================
+  2. THE DATA (and what was wrong with it)
+==========================================================================
+
+  Sensor readings received                  178,468   
+  Road segments                                  25   
+  Period covered                     1 Jan - 31 May 2025   
+
+  Problems found and fixed:
+
+  Impossible readings quarantined               712   negative counts, 300 km/h
+  Duplicate rows removed                      1,759   sensor sent twice
+  Missing time slots restored                 5,203   <-- the important one
+  Weather spellings unified                 13 -> 4   'RAIN', 'rainy', 'Rain'
+
+  Why the missing slots matter most: if you ask the computer for "the
+  previous reading" and an 8am row simply does not exist, it hands you
+  7am and calls it 8am. Every calculation after that is quietly wrong.
+
+
+==========================================================================
+  3. THE TRAP IN THE DATA
+==========================================================================
+
+  One column, "congestion level", turned out to be nothing more than the
+  vehicle count sorted into four buckets. Checked against the rows that
+  already had a label, the rule matched 99.64% of the time.
+
+  So it is not independent information. Hand it to the computer and it
+  "predicts" congestion almost perfectly - because it was given the answer.
+
+  This system refuses that shortcut. Five automated tests exist purely to
+  make sure it stays refused.
+
+
+==========================================================================
+  4. RESULTS - how well does it predict?
+==========================================================================
+
+  Predicting how many vehicles pass in the next 30 minutes:
+
+  Lazy guess (assume no change)         16.0% error   free, no computer
+  Best model (XGBoost)                   8.9% error   <-- twice as good
+
+  That is a 45% reduction in error against the lazy guess.
+  The comparison is the point: 8.9% on its own means nothing.
+
+  Every model tried, worst to best:
+
+    Mean baseline                        83.3%  ##################################################################
+    Persistence (naive)                  16.0%  ############
+    Linear Regression (from scratch)     13.0%  ##########
+    Linear Regression (sklearn)          12.3%  #########
+    Decision Tree                        10.4%  ########
+    Random Forest                         9.3%  #######
+    XGBoost                               8.9%  #######
+
+==========================================================================
+  5. THE HONEST PART - what did NOT work
+==========================================================================
+
+  Target: congestion class                    0.768   needed 0.80  -- MISSED
+  Target: accident risk                       0.643   needed 0.75  -- MISSED
+
+  Why did accident prediction fail? I tested it properly.
+
+  I built a deliberately CHEATING version, allowed to see information no
+  real forecast could ever have. The cheat improved things by +0.006.
+
+  Essentially nothing. So the answer is not "try harder" - the information
+  needed to predict accidents is simply not in this data. What is missing
+  is road layout, lane counts, and where crashes happened before.
+
+  Knowing a problem is unsolvable with the data you have is a real finding.
+
+  The ranking is still useful, even at low accuracy:
+
+  Top-decile lift                             2.64x   patrol the riskiest 10%
+      -> you find 2.6 times as many incidents as patrolling at random.
+
+==========================================================================
+  6. HOW SURE IS IT? (confidence check)
+==========================================================================
+
+  The system gives a range, not just a single number. A range is
+  only worth showing if it is actually right, so it was checked:
+
+  Range promised to be right         80% of the time   
+  Range actually right               80.7% of the time   <-- honest
+
+  The range also widens when the road is harder to predict:
+
+    Off-peak, dry                    +/- 90 vehicles   
+    Peak                             +/- 211 vehicles   
+    Peak + rain                      +/- 230 vehicles   
+    Rain                             +/- 94 vehicles   
+
+==========================================================================
+  7. SUMMARY
+==========================================================================
+
+  Rows of raw data processed                178,468   
+  Clues built for each prediction                93   
+  Different methods compared                      6   
+  Automated tests, all passing                   21   
+
+  Targets met:      volume accuracy, reproducibility, speed, dashboard
+  Targets missed:   congestion class, accident risk (explained above)
+
+  The neural network scored 55.6 against the simple
+  model's 55.9. Barely better, twelve times slower.
+  Recommendation: do not use it. Complexity has to earn its place.
+
+==========================================================================
+  Dashboard:  streamlit run dashboard/app.py
+==========================================================================
+
